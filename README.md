@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Dynamic Post Page with OG Image Generation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objective
 
-## Available Scripts
+This project creates a static post page using React that dynamically generates an Open Graph (og:image) based on the post content. The generated image can be used for social media previews.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Post Page**: A simple page to create and view a post with a title, content, and optional image.
+- **OG Image Generation**: Dynamically creates an Open Graph image (1200x630 pixels) including the post's title, a snippet of the content, and any associated image.
+- **Automatic Meta Tag Integration**: Automatically adds the og:image meta tag to the post page's HTML.
+- **Styling**: Applies styles to ensure the OG image is visually appealing and readable, with branding elements.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Clone the repository:**
 
-### `npm test`
+2. **Navigate to the project directory:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   cd your-repository
+   ```
 
-### `npm run build`
+3. **Install dependencies:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Run the application:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+   The application will start on [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Creating a Post:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   - Enter a title in the "Title" field.
+   - Enter the post content in the "Content" field.
+   - Upload an image from your device.
+   - Click "Generate OG Image" to generate the post page and OG image.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Viewing the Generated OG Image:**
+   - The post page will display the content and an image preview.
+   - The OG image is automatically generated and can be accessed from the console logs (for testing purposes).
 
-## Learn More
+## Code Overview
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `App.js`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Manages the state for the title, content, and image of the post.
+- Validates input lengths and ensures all fields are filled before navigating to the post page.
+- Handles image upload and updates state accordingly.
 
-### Code Splitting
+### `PostPage.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Receives post data via `useLocation` from React Router.
+- Generates the OG image using `html-to-image` library.
+- Displays the post content including title, content, and uploaded image.
 
-### Analyzing the Bundle Size
+### `App.css` & `PostPage.css`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Styles the post creation form and the post page to ensure a clean and professional appearance.
 
-### Making a Progressive Web App
+## Key Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Character Limits**: Title and content inputs are limited to specified maximum lengths with validation in place.
+- **Image Generation**: Uses `html-to-image` to capture and convert the post content into an image format.
+- **Meta Tags**: Automatically includes the OG image meta tag in the HTML.
 
-### Advanced Configuration
+## Performance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The image generation process is optimized for speed and should perform efficiently for typical post content sizes.
