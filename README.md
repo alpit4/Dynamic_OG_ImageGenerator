@@ -47,6 +47,10 @@ This project creates a static post page using React that dynamically generates a
 2. **Viewing the Generated OG Image:**
    - The post page will display the content and an image preview.
    - The OG image is automatically generated and can be accessed from the console logs (for testing purposes).
+## Screenshots
+![Screenshot (860)](https://github.com/user-attachments/assets/45244335-60df-40cb-8c19-96c9832d0459)
+![Screenshot (861)](https://github.com/user-attachments/assets/05ca5867-fd4d-45e0-a4d8-e6a14cd855ef)
+
 
 ## Code Overview
 
@@ -61,6 +65,7 @@ This project creates a static post page using React that dynamically generates a
 - Receives post data via `useLocation` from React Router.
 - Generates the OG image using `html-to-image` library.
 - Displays the post content including title, content, and uploaded image.
+
 
 ### `App.css` & `PostPage.css`
 
